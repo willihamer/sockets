@@ -1,0 +1,5 @@
+package com.spring.bakend.chat;
+
+public class WebSocketConfig {
+
+}

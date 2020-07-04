@@ -1,0 +1,5 @@
+package com.spring.bakend.chat.models.repository;
+
+public interface ChatRepository {
+
+}

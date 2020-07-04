@@ -1,0 +1,5 @@
+package com.spring.bakend.chat.models.documents;
+
+public class MensajePOJO {
+
+}

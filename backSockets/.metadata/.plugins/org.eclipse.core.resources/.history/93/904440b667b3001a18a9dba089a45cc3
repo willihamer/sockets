@@ -1,0 +1,30 @@
+package com.spring.bakend.chat.controllers;
+
+import java.util.Date;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Controller;
+
+import com.spring.bakend.chat.models.documents.MensajePOJO;
+
+@Controller
+public class chatController {
+	
+	
+//	la anotacion sendto es la que permite que la informacion que envia un cliente sea enaviada a los demas
+//	los clientes deben estar suscritos al evento chat
+//	el valor del sendto debe ser igual al que se configuro en websocketconfig 
+	@MessageMapping("/mensaje")
+	@SendTo("/chat/message")
+	public MensajePOJO recibeMensaje(MensajePOJO mensaje) {
+		
+		mensaje.setFecha(new Date().getTime());
+		mensaje.setTexto("Recibido por el Broker: " + mensaje.getTexto());
+		
+		return mensaje;
+	}
+	
+	
+
+}
